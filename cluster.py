@@ -35,18 +35,18 @@ vector = TfidfVectorizer(analyzer=text_process, ngram_range=(1, 3))
 X_transformed = vector.fit_transform(original_text)
 
 # Clustering the training sentences with K-means technique
-#
-# from sklearn.cluster import KMeans
-#
-# modelkmeans = KMeans(n_clusters=4, init='k-means++', n_init=100)
-# modelkmeans.fit(X_transformed)
-#
-# labels = modelkmeans.labels_
-# centroids = modelkmeans.cluster_centers_
-#
-# print(labels)
-# print(centroids)
-#
+
+from sklearn.cluster import KMeans
+
+ modelkmeans = KMeans(n_clusters=4, init='k-means++', n_init=100)
+ modelkmeans.fit(X_transformed)
+
+ labels = modelkmeans.labels_
+ centroids = modelkmeans.cluster_centers_
+
+ print(labels)
+ print(centroids)
+
 # # save the model to disk
 filename = 'finalized_model.sav'
 # pickle.dump(modelkmeans, open(filename, 'wb'))
